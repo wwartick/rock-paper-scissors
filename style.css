@@ -46,7 +46,13 @@ button{
     border-radius: 16px;
     border: 4px solid #FAEF5D;
     margin-top: 0;
+    margin-bottom: 32px;
 }
+
+button:hover {
+    transform: scale(1.2);
+    opacity: 150%;
+  }
 
 h2{
    margin-bottom: -10px;

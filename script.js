@@ -8,56 +8,82 @@ function getRandomInt(max) {
 
 //creates a popup to declare winner - refreshes the page
 var gameOver = function(winner){
+    if(winner == 'you'){
+        document.getElementById('userScore').innerHTML="you win!";
+        document.getElementById('computerScore').innerHTML="the computer loses";
+    }
+    else{
+        document.getElementById('userScore').innerHTML="you lose";
+        document.getElementById('computerScore').innerHTML="the computer won?";
+    }
     setTimeout(function(){
         alert(winner + ' won! Press OK to play again.');
         location.reload();
     }, 10);
 }
 
-//function that determines the winner, returns string based on the result, adds a counter to the winner
+//function that determines the winner, returns string based on the result, adds a counter to the winner, changes border color for winner/loser/tie
 var playRound = function(playerSelection, computerSelection) {
     document.getElementById('h3').innerHTML='';
 
     if(playerSelection =='rock' && computerSelection == 'rock'){
         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
+        document.getElementById("userChoice").style.borderColor = "#FAEF5D";
+        document.getElementById("computerChoice").style.borderColor = "#FAEF5D"; 
     } else if(playerSelection =='rock' && computerSelection == 'scissors'){
         document.getElementById('h2').innerHTML=`you win! ${playerSelection} beats ${computerSelection}.`;
+        document.getElementById("userChoice").style.borderColor = "green";
+        document.getElementById("computerChoice").style.borderColor = "red";
         playerWins++;
     }else if(playerSelection =='rock' && computerSelection == 'paper'){
         document.getElementById('h2').innerHTML=`you lose! ${computerSelection} loses to ${playerSelection}.`;
+        document.getElementById("userChoice").style.borderColor = "red";
+        document.getElementById("computerChoice").style.borderColor = "green";
         computerWins++;
     }
 
     if(playerSelection =='paper' && computerSelection == 'paper'){
         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
+        document.getElementById("userChoice").style.borderColor = "#FAEF5D";
+        document.getElementById("computerChoice").style.borderColor = "#FAEF5D";
     } else if(playerSelection =='paper' && computerSelection == 'rock'){
         document.getElementById('h2').innerHTML=`you win! ${playerSelection} beats ${computerSelection}.`;
+        document.getElementById("userChoice").style.borderColor = "green";
+        document.getElementById("computerChoice").style.borderColor = "red";
         playerWins++;
     }else if(playerSelection =='paper' && computerSelection == 'scissors'){
         document.getElementById('h2').innerHTML=`you lose! ${computerSelection} loses to ${playerSelection}.`;
+        document.getElementById("userChoice").style.borderColor = "red";
+        document.getElementById("computerChoice").style.borderColor = "green";
         computerWins++;
     }
 
     if(playerSelection =='scissors' && computerSelection == 'scissors'){
         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
+        document.getElementById("userChoice").style.borderColor = "#FAEF5D";
+        document.getElementById("computerChoice").style.borderColor = "#FAEF5D";
     } else if(playerSelection =='scissors' && computerSelection == 'paper'){
         document.getElementById('h2').innerHTML=`you win! ${playerSelection} beats ${computerSelection}.`;
+        document.getElementById("userChoice").style.borderColor = "green";
+        document.getElementById("computerChoice").style.borderColor = "red";
         playerWins++;
     }else if(playerSelection =='scissors' && computerSelection == 'rock'){
         document.getElementById('h2').innerHTML=`you lose! ${computerSelection} loses to ${playerSelection}.`;
+        document.getElementById("userChoice").style.borderColor = "red";
+        document.getElementById("computerChoice").style.borderColor = "green";
         computerWins++;
     }
 
     //changes the string to display the current score based on the rounds winner
-    document.getElementById('userScore').innerHTML=playerWins;
-    document.getElementById('computerScore').innerHTML=computerWins;
+    document.getElementById('userScore').innerHTML="you: " + playerWins;
+    document.getElementById('computerScore').innerHTML="computer: " + computerWins;
 
     //calls a function that ends the game when a player reaches 5 points
     if(playerWins >=5){
-        gameOver('You');
+        gameOver('you');
     }
     else if(computerWins >=5){
-        gameOver('The computer')
+        gameOver('the computer')
     }
 }
 
