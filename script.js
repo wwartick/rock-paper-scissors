@@ -8,8 +8,10 @@ function getRandomInt(max) {
 
 //creates a popup to declare winner - refreshes the page
 var gameOver = function(winner){
-    alert(winner + ' won! Press OK to play again.')
-    location.reload();
+    setTimeout(function(){
+        alert(winner + ' won! Press OK to play again.');
+        location.reload();
+    }, 10);
 }
 
 //function that determines the winner, returns string based on the result, adds a counter to the winner
@@ -27,7 +29,7 @@ var playRound = function(playerSelection, computerSelection) {
     }
 
     if(playerSelection =='paper' && computerSelection == 'paper'){
-         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
+        document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
     } else if(playerSelection =='paper' && computerSelection == 'rock'){
         document.getElementById('h2').innerHTML=`you win! ${playerSelection} beats ${computerSelection}.`;
         playerWins++;
@@ -57,8 +59,6 @@ var playRound = function(playerSelection, computerSelection) {
     else if(computerWins >=5){
         gameOver('The computer')
     }
-    
-
 }
 
 var game = function() {
