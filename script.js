@@ -1,20 +1,7 @@
-/* functions from ODIN - getComputerChoice
-playRound function with 2 parameters - playerSelection and computerSelection
- ^^ should return a STRING that declares the winner in "You Lose! Paper beats Rock." format
-game() function that contains the playRound function
-
-needs to read button selection from user - when button is pressed, also randomizes CPU selection
-change images of user selection to what user selected - do the same for CPU
-change instructions/win condition text to the round results
-first to 5 - displays a "play again" after either user/cpu wins + wipes scores and resets placeholder images
-
-*/
 let playerWins=0;
 let computerWins=0;
-let rockPic = "url('./img/rock.png')"
-let scissorsPic = "url('./img/scissors.jpg')"
-let paperPic = "url('./img/paper.jpg')"
 
+//random number generator
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
@@ -59,9 +46,11 @@ var playRound = function(playerSelection, computerSelection) {
         computerWins++;
     }
 
+    //changes the string to display the current score based on the rounds winner
     document.getElementById('userScore').innerHTML=playerWins;
     document.getElementById('computerScore').innerHTML=computerWins;
 
+    //calls a function that ends the game when a player reaches 5 points
     if(playerWins >=5){
         gameOver('You');
     }
