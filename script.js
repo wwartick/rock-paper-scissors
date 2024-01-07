@@ -24,8 +24,10 @@ var gameOver = function(winner){
 
 //function that determines the winner, returns string based on the result, adds a counter to the winner, changes border color for winner/loser/tie
 var playRound = function(playerSelection, computerSelection) {
+    //removes instruction text
     document.getElementById('h3').innerHTML='';
 
+    //scenarios if player selects ROCK
     if(playerSelection =='rock' && computerSelection == 'rock'){
         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
         document.getElementById("userChoice").style.borderColor = "#FAEF5D";
@@ -41,7 +43,7 @@ var playRound = function(playerSelection, computerSelection) {
         document.getElementById("computerChoice").style.borderColor = "green";
         computerWins++;
     }
-
+    //scenarios if player selects PAPER
     if(playerSelection =='paper' && computerSelection == 'paper'){
         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
         document.getElementById("userChoice").style.borderColor = "#FAEF5D";
@@ -57,7 +59,7 @@ var playRound = function(playerSelection, computerSelection) {
         document.getElementById("computerChoice").style.borderColor = "green";
         computerWins++;
     }
-
+    //scenarios if player selects SCISSORS
     if(playerSelection =='scissors' && computerSelection == 'scissors'){
         document.getElementById('h2').innerHTML=`it's a tie! you both selected ${playerSelection}`;
         document.getElementById("userChoice").style.borderColor = "#FAEF5D";
