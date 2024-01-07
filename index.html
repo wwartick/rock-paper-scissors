@@ -8,15 +8,39 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    
-<!-- header with title "Rock Paper Scissors"
-     instructions + win conditions
-     round results above selection images
-     image displaying user selection + image displaying CPU selection
-     current score below selection images
-     buttons for user to choose rock, paper or scissors
-     footer
--->
-
+    <!-- header with title "Rock Paper Scissors"-->
+    <div class="header">
+        <h1>Rock, Paper, Scissors!</h1>
+    </div>
+    <!--instructions + win conditions 
+     round results above selection images (change instructions + win conditions with js) -->
+    <div class="main">
+        <div class="textBox">
+            <h2 id="h2">Make a choice to start the game</h2>
+            <h3 id="h3">First player to win 5 rounds WINS</h3>
+        </div>
+     <!-- image displaying user selection + image displaying CPU selection 
+        current score below selection images-->
+        <div class="selectedBox">
+            <div class="userBox">
+                <img src="./img/what.jpg" id="userChoice">
+                <p id="userScore">0</p>
+           </div> 
+           <div class="computerBox">
+                <img src="./img/what.jpg" id="computerChoice">
+                <p id="computerScore">0</p>
+           </div>
+        </div>
+  <!-- buttons for user to choose rock, paper or scissors -->
+        <div class="choiceButtons">
+            <button id="rock">rock</button>
+            <button id="paper">paper</button>
+            <button id="scissors">scissors</button>
+        </div>
+    </div>  
+    <!-- footer -->
+    <div class="footer">
+        <p>made by will</p>
+    </div>
 </body>
 </html>

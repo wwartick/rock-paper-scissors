@@ -1,7 +1,7 @@
 /* functions from ODIN - getComputerChoice
 playRound function with 2 parameters - playerSelection and computerSelection
  ^^ should return a STRING that declares the winner in "You Lose! Paper beats Rock." format
-game() function that contains the playRound function - meat and potatoes of the script.
+game() function that contains the playRound function
 
 needs to read button selection from user - when button is pressed, also randomizes CPU selection
 change images of user selection to what user selected - do the same for CPU
