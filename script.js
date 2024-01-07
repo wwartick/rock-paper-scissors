@@ -11,11 +11,15 @@ first to 5 - displays a "play again" after either user/cpu wins + wipes scores a
 */
 let playerWins=0;
 let computerWins=0;
+let rockPic = "url('./img/rock.png')"
+let scissorsPic = "url('./img/scissors.jpg')"
+let paperPic = "url('./img/paper.jpg')"
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+//creates a popup to declare winner - refreshes the page
 var gameOver = function(winner){
     alert(winner + ' won! Press OK to play again.')
     location.reload();
@@ -72,17 +76,32 @@ var game = function() {
     let computerChoice;
     //sets playerSelection to the pressed button
     let userChoice=this.id;
-    //generates 0,1, or 2 randomly, and assigns a string value for the computers selection
+    //changes the players choice picture to the selected  meme
+    switch(userChoice){
+        case 'rock':
+            document.getElementById('userChoice').src='./img/rock.png';
+            break;
+        case 'paper':
+            document.getElementById('userChoice').src='./img/paper.jpg';
+            break;
+        case 'scissors': 
+            document.getElementById('userChoice').src='./img/scissors.jpg';
+            break;
+    }
+    //generates 0,1, or 2 randomly, and assigns a string value for the computers selection and changes the image
     let computerRandomizer=getRandomInt(3);
     switch(computerRandomizer){
         case 0:
             computerChoice = "rock";
+            document.getElementById('computerChoice').src='./img/rock.png';
             break;
         case 1:
             computerChoice = "paper";
+            document.getElementById('computerChoice').src='./img/paper.jpg';
             break;
         case 2: 
             computerChoice = "scissors";
+            document.getElementById('computerChoice').src='./img/scissors.jpg';
             break;
     }
     playRound(userChoice, computerChoice);
